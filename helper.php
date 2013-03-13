@@ -60,7 +60,7 @@ class ModTSJwatersTotalHelper {
 	WHERE wd.office_counter_id = wo.office_counter_id 
 	AND ac.account_id = wo.account_id  
 	AND wd.date_in > LAST_DAY( DATE_SUB( CURDATE( ) , INTERVAL 2 MONTH ) ) + INTERVAL '.$start_day.' DAY 
-	AND wd.date_in < DATE_ADD( LAST_DAY( CURDATE( ) - INTERVAL 1 MONTH ) , INTERVAL 1 DAY ) + INTERVAL '.$stop_day.' DAY 
+	AND wd.date_in < DATE_ADD( LAST_DAY( CURDATE( ) - INTERVAL 1 MONTH ) , INTERVAL 1 DAY ) + INTERVAL '.$start_day.' DAY 
 	ORDER BY ac.account_id';
 		$db->setQuery($query);
 		$data_water1s = $db->loadObjectlist();
@@ -87,7 +87,7 @@ class ModTSJwatersTotalHelper {
 	#__tsj_water_office AS wo 
 	WHERE wd.office_counter_id = wo.office_counter_id 
 	AND ac.account_id = wo.account_id 
-	AND wd.date_in > LAST_DAY(CURDATE()) + INTERVAL '.$stop_day.' DAY - INTERVAL 1 MONTH 
+	AND wd.date_in > LAST_DAY(CURDATE()) + INTERVAL '.$start_day.' DAY - INTERVAL 1 MONTH 
 	AND wd.date_in < DATE_ADD(LAST_DAY(CURDATE()), INTERVAL 1 DAY) 
 	ORDER BY ac.account_id';
 		$db->setQuery($query);

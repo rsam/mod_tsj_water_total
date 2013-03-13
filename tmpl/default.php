@@ -152,7 +152,7 @@ if ($styletype==1) {
 			<td align="center">'.$data_water2->data_cold_c3.'</td>';
 		echo '</tr>';
 		$namer_string=$key+1;
-		fputs ($f, "\"$namer_string\";\"$data_water1->account_num\";\"$data_water1->date_in\";\"$data_water1->data_hot_c1\";\"$data_water1->data_cold_c1\";\"$data_water1->data_hot_c2\";\"$data_water1->data_cold_c2\";\"$data_water1->data_hot_c3\";\"$data_water1->data_cold_c3\" \r\n");
+		fputs ($f, "\"$namer_string\";\"$data_water2->account_num\";\"$data_water2->date_in\";\"$data_water2->data_hot_c1\";\"$data_water2->data_cold_c1\";\"$data_water2->data_hot_c2\";\"$data_water2->data_cold_c2\";\"$data_water2->data_hot_c3\";\"$data_water2->data_cold_c3\" \r\n");
 	}
 	fclose($f);
 	echo '</table>';
