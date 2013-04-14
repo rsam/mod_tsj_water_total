@@ -6,14 +6,20 @@ Copyright (C) 2011 joomla-umnik
 Лицензия GNU/GPLv3 http://www.gnu.org/licenses/gpl-3.0.html
 Официальный сайт http://joomlaforum.ru/
 -->
-<?php defined('_JEXEC') or die('Restricted access'); // запрет к прямому обращению ?>
+<?php defined('_JEXEC') or die('Restricted access'); // запрет к прямому обращению
+require_once(dirname(__FILE__).DS.'../helper.php');
+?>
+
+<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.4/jquery.min.js"></script>
+<script type="text/javascript" src="/media/com_tsj/js/datepicker.js"></script>
+<link rel="stylesheet" type="text/css" media="all" href="/media/com_tsj/js/datepicker.css" />
 
 <link
 	rel="stylesheet" type="text/css"
 	href="modules/mod_tsj_waters_total/tsj_waters_total.css">
 <div id="linked-active">
 
-<?php
+<?php 
 //echo "<h2>Дата смены отчётного периода - $comparams['water_stopDay']</h2>";
 
 //-- определяем массив для месяцев --
@@ -156,8 +162,7 @@ if ($styletype==1) {
 	}
 	fclose($f);
 	echo '</table>';
-} else
-if ($styletype==2) {
+} else if ($styletype==2) {
 	echo "<h2>Показания счётчиков за период с ".$comparams['water_stopDay']." ".$mesyac_prev." по ".$comparams['water_stopDay']." ".$mesyac_car." ".date('Y')." г</h2>";
 	echo '<br />';
 
@@ -296,14 +301,22 @@ else if ($styletype==3) {
 		action="<?php echo JRoute::_('index.php'); ?>" method="post">
 		<fieldset>
 		<?php
-		$value = date('d-m-Y');
-		
-		echo JHTML::_('behavior.calendar');
-		echo JHTML::_('calendar', $value, 'startdate', 'startdate', '%d-%m-%Y');
 
-		echo JHTML::_('behavior.calendar');
-		echo JHTML::_('calendar', $value, 'stopdate', 'stopdate', '%d-%m-%Y');
+		$value_start = date('d.m.Y');
+		$value_stop = date('d.m.Y');
+		
+		$f = 2;
+		ModTSJwatersTotalHelper::setFirst($f);
+		$f = ModTSJwatersTotalHelper::getFirst();
+		echo $f;
+		
+		//echo JHTML::_('behavior.calendar');
+		//echo JHTML::_('calendar', $value, 'startdate', 'startdate', '%d-%m-%Y');
+		//echo JHTML::_('calendar', $value, 'stopdate', 'stopdate', '%d-%m-%Y');
 		?>
+		<input name="startdate" id="startdate" value="<?php echo($value_start); ?>" class='datepicker'>
+		<input name="stopdate" id="stopdate" value="<?php echo($value_stop); ?>" class="datepicker">
+
 			<input id="submit" name="submit" type="submit"
 				value="Сформировать отчет" />
 				<?php echo JHtml::_('form.token'); ?>
@@ -312,12 +325,13 @@ else if ($styletype==3) {
 		<div class="clr"></div>
 	</form>
 	<?php
-
 	// если нажали на кнопку
 	if( isset($_POST['submit']))
 	{
 		$startdate = $_POST['startdate'];
 		$stopdate = $_POST['stopdate'];
+		$value_start = $startdate;
+		$value_stop = $stopdate;
 
 		$data_water4s = ModTSJwatersTotalHelper::getdata_water4s($waterTotal, $startdate, $stopdate);
 		echo "<h2>Показания счётчиков за период с ".$startdate." по ".$stopdate."г.</h2>";

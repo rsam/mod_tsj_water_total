@@ -11,9 +11,20 @@ defined('_JEXEC') or die('Direct Access to this location is not allowed.');
 
 $dir_absolute_path=preg_replace('#[/\\\\]+#', '/', dirname(__FILE__));
 
-class ModTSJwatersTotalHelper {
+class ModTSJwatersTotalHelper extends JView {
 	public $db = null;
+	private $first = 1;
 
+	public function setFirst($f)
+	{
+		$first = $f;
+	}
+	
+	public function getFirst()
+	{
+		return $first;
+	}
+	
 	/**
 	 * Returns params of water counters.
 	 *
