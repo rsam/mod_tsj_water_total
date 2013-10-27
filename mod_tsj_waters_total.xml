@@ -1,63 +1,68 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!--Что устанавливаем модуль компонент или плагин и для какой версии-->
-<extension type="module" version="2.5" client="site" method="upgrade">
-<!--Имя компонента отображаемое в модулях-->
-<name>TSJ расход воды</name>
-<!--Дата создания-->
-<creationDate>Февраль 2013</creationDate>
-<!--Кто автор!?-->
-<author>RVP</author>
-<!--Копирайты по желанию-->
-<copyright>All rights reserved</copyright>
-<!--Лицензия-->
-<license>GNU/GPLv3 http://www.gnu.org/licenses/gpl-3.0.html</license>
-<!--Версия модуля-->
-<version>2.0.0</version>
-<!--Описание модуля-->
-<description>Модуль вывода показаний расхода воды</description>
-<!--Перечисляем какие файлы нужно установить-->
-<files>
-<filename module="mod_tsj_waters_total">mod_tsj_waters_total.php</filename>
-<folder>tmpl</folder>
-<folder>logs</folder>
-<filename>index.html</filename>
-<filename>helper.php</filename>
-<filename>tsj_waters_total.css</filename>
-</files>
-<!--Устанавливаем языковые файлы-->
-<languages>
-<language tag="ru-RU">ru-RU.mod_tsj_waters_total.ini</language>
-<language tag="en-GB">en-GB.mod_tsj_waters_total.ini</language>
-</languages>
+<install type="module" version="2.5" client="site" method="upgrade">
+	<!--Имя компонента отображаемое в модулях-->
+	<name>tsj mod_tsj_waters_total</name>
+	<!--Дата создания-->
+	<creationDate>Февраль 2013</creationDate>
+	<!--Кто автор!?-->
+	<author>RVP</author>
+	<!--Копирайты по желанию-->
+	<copyright>All rights reserved</copyright>
+	<!--Лицензия-->
+	<license>GNU/GPLv3 http://www.gnu.org/licenses/gpl-3.0.html</license>
+	<!--Версия модуля-->
+	<version>2.0.0</version>
+	<!--Описание модуля-->
+	<description>Модуль вывода показаний расхода воды</description>
+	
+	<!--Перечисляем какие файлы нужно установить-->
+	<files>
+		<filename module="mod_tsj_waters_total">mod_tsj_waters_total.php</filename>
+		<folder>tmpl</folder>
+		<folder>logs</folder>
+		<filename>index.html</filename>
+		<filename>helper.php</filename>
+		<filename>tsj_waters_total.css</filename>
+	</files>
+	
+	<!--Устанавливаем языковые файлы-->
+	<languages>
+		<language tag="ru-RU">ru-RU.mod_tsj_waters_total.ini</language>
+		<language tag="en-GB">en-GB.mod_tsj_waters_total.ini</language>
+	</languages>
 
-<!--А это уже те самые параметры которые мы увидим в настройках модуля-->
-<config>
-<fields name="params">
-<fieldset name="basic">
-<field
-name="styletype"
-type="list"
-default="1"
-label="COM_MODULES_NTG_FIELDSET_LABEL_NAME"
-description="COM_MODULES_NTG_FIELDSET_LABEL_OPISANIE">
-<option value="1">Пример 1</option>
-<option value="2">Пример 2</option>
-<option value="3">Пример 3</option>
-<option value="4">Пример 4</option>
-<option value="5">Пример 5</option>
-<option value="6">Пример 6</option>
-</field>
-</fieldset>
-<fieldset name="NTG">
-</fieldset>								
-<fieldset name="advanced">
-<field
-name="cache_time"
-type="text"
-default="900"
-label="COM_MODULES_FIELD_CACHE_TIME_LABEL"
-description="COM_MODULES_FIELD_CACHE_TIME_DESC" />
-</fieldset>
-</fields>
-</config>
-</extension>
+	<!--А это уже те самые параметры которые мы увидим в настройках модуля-->
+	<config>
+		<fields name="params">
+			<fieldset name="basic">
+				<field
+					name="styletype"
+					type="list"
+					default="1"
+					label="COM_MODULES_NTG_FIELDSET_LABEL_NAME"
+					description="COM_MODULES_NTG_FIELDSET_LABEL_OPISANIE">
+					<option value="1">Пример 1</option>
+					<option value="2">Пример 2</option>
+					<option value="3">Пример 3</option>
+					<option value="4">Пример 4</option>
+					<option value="5">Пример 5</option>
+					<option value="6">Пример 6</option>
+				</field>
+			</fieldset>
+			
+			<fieldset name="NTG">
+			</fieldset>		
+			
+			<fieldset name="advanced">
+				<field
+					name="cache_time"
+					type="text"
+					default="900"
+					label="COM_MODULES_FIELD_CACHE_TIME_LABEL"
+					description="COM_MODULES_FIELD_CACHE_TIME_DESC" />
+			</fieldset>
+			
+		</fields>
+	</config>
+</install>
