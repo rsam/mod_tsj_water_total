@@ -3,7 +3,7 @@
 defined('_JEXEC') or die('Direct Access to this location is not allowed.');
 
 // подключаем файл helper.php
-require_once(dirname(__FILE__).DS.'helper.php');
+require_once(dirname(__FILE__).DIRECTORY_SEPARATOR.'helper.php');
 
 // берем параметры из файла конфигурации
 $waterTotal = $params->get('watertotal');

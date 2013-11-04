@@ -7,7 +7,7 @@ Copyright (C) 2011 joomla-umnik
 Официальный сайт http://joomlaforum.ru/
 -->
 <?php defined('_JEXEC') or die('Restricted access'); // запрет к прямому обращению
-require_once(dirname(__FILE__).DS.'../helper.php');
+require_once(dirname(__FILE__).DIRECTORY_SEPARATOR.'../helper.php');
 ?>
 
 <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.4/jquery.min.js"></script>

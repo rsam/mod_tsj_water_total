@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!--Что устанавливаем модуль компонент или плагин и для какой версии-->
-<install type="module" version="2.5" client="site" method="upgrade">
+<extension type="module" version="2.5" client="site" method="upgrade">
 	<!--Имя компонента отображаемое в модулях-->
 	<name>tsj mod_tsj_waters_total</name>
 	<!--Дата создания-->
@@ -65,4 +65,4 @@
 			
 		</fields>
 	</config>
-</install>
+</extension>
