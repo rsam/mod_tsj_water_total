@@ -11,7 +11,7 @@ defined('_JEXEC') or die('Direct Access to this location is not allowed.');
 
 $dir_absolute_path=preg_replace('#[/\\\\]+#', '/', dirname(__FILE__));
 
-class ModTSJwatersTotalHelper extends JView {
+class ModTSJwatersTotalHelper extends JViewLegacy {
 	public $db = null;
 	private $first = 1;
 
